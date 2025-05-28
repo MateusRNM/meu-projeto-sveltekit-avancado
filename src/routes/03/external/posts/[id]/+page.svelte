@@ -2,14 +2,16 @@
   let { data } = $props();
 </script>
 
-<div class="container-md bg-dark rounded-3 align-self-center">
-    <h1 class="text-light text-wrap fs-3 text-center">{data.postagem.title}</h1><br>
-    <p class="text-light text-wrap fs-5 text-left">{data.postagem.body}</p>
-</div>
-<center><h1 style="margin: 3%;">COMENTÁRIOS:</h1></center>
-{#each data.comentarios as comentario}
-    <div class="container-md bg-dark rounded-3 align-self-center">
-        <h1 class="text-light text-wrap fs-3 text-center">{comentario.name}</h1><br>
-        <p class="text-light text-wrap fs-5 text-left">{comentario.body}</p>
+<div class="container-md col border border-black position-absolute top-50 start-50 translate-middle p-3">
+    <div class="row border border-black">
+        <center><h1>{data.postagem.title}</h1></center>
+        <p>{data.postagem.body}</p>
     </div>
-{/each}
+    <center><h3 class="mt-5 mb-5">Comentários:</h3></center>
+    <div class="row border border-black">
+        {#each data.comentarios as comentario}
+            <center><h4>{comentario.name}</h4></center>
+            <p class="fs-6">{comentario.body}</p>
+        {/each}
+    </div>
+</div>
