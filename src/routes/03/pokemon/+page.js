@@ -1,6 +1,7 @@
-export async function load() {
-    const limit = 12;
-    const offset = 0;
+export async function load({url}) {
+    const limit = url.searchParams.get('limit') || 12;
+    const page = url.searchParams.get('page') || 1;
+    const offset = (page-1) * 12
 
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`);
     const data = await res.json();

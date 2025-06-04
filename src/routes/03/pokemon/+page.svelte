@@ -1,5 +1,18 @@
 <script>
+    import { derived } from 'svelte/store';
+
   let { data } = $props();
+  let page = $state(1)
+  let limit = $state(12);
+
+  function anterior(){
+    if(page <= 1) return
+    page -= 1
+  }
+
+  function proximo(){
+    page += 1
+  }
 </script>
 
 <div class="row">
@@ -17,6 +30,18 @@
   {/each}
 </div>
 
-<div class="row">
-    <button></button>
-</div>
+<form action={`/03/pokemon`}>
+  <div class="container text-center">
+    <button class="btn btn-primary m-3" onclick={() => anterior()}>ANTERIOR</button>
+    <input class="w-5 text-center border border-0" disabled={true} name="page" bind:value={page}/>
+    <button class="btn btn-primary m-3" onclick={() => proximo()}>PRÓXIMO</button>
+    <p>Quantidade de pokémons por página:</p> <input class="text-center border border-0" name="limit" disabled={true} bind:value={limit}/>
+  </div>
+</form>
+
+
+<style>
+  input {
+    width: 6%;
+  }
+</style>

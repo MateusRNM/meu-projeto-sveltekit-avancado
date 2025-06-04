@@ -8,10 +8,10 @@
         <p>{data.postagem.body}</p>
     </div>
     <center><h3 class="mt-5 mb-5">Comentários:</h3></center>
-    <div class="row border border-black">
-        {#each data.comentarios as comentario}
+    {#each data.comentarios as comentario}
+        <div class="row border border-black mb-3">
             <center><h4>{comentario.name}</h4></center>
             <p class="fs-6">{comentario.body}</p>
-        {/each}
-    </div>
+        </div>  
+    {/each}
 </div>
