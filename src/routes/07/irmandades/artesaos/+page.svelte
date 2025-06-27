@@ -1,0 +1,1 @@
+<center><h1>SEJA BEM-VINDO A GUILDA DOS ARTESÃOS</h1></center>
